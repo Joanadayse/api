@@ -1,0 +1,2 @@
+ALTER TABLE medicos
+ADD COLUMN nova_coluna VARCHAR(255);
