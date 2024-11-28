@@ -29,10 +29,14 @@ public class TokenService {
                     .withSubject(usuario.getLogin())
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
+
+
         } catch (JWTCreationException exception){
+            System.err.println("Erro ao gerar token JWT: " + exception.getMessage());
             throw new RuntimeException("erro ao gerrar token jwt", exception);
         }
     }
+
 
     public String getSubject(String tokenJWT) {
         try {
@@ -45,6 +49,7 @@ public class TokenService {
         } catch (JWTVerificationException exception) {
             throw new RuntimeException("Token JWT inválido ou expirado!");
         }
+
     }
 
     private Instant dataExpiracao() {

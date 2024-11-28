@@ -33,9 +33,13 @@ public class SecurityFilter extends OncePerRequestFilter {
             var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
+            System.out.println("Token JWT: " + tokenJWT);
+            System.out.println("Usuário encontrado: " + usuario);
         }
 
         filterChain.doFilter(request, response);
+
+
     }
 
 
