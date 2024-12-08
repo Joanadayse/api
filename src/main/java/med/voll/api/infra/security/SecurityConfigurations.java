@@ -27,7 +27,7 @@ public class SecurityConfigurations {
                         // Permite acesso público para POST /login
                         .requestMatchers(HttpMethod.POST, "/login").permitAll()
                         // Permite acesso público para GET /minha-rota
-                        .requestMatchers(HttpMethod.GET, "/medicos").permitAll()
+                        .requestMatchers("/v3/api-docs/**","/swagger-ui.html","/swagger-ui/**").permitAll()
                         // Exige autenticação para qualquer outra requisição
                         .anyRequest().authenticated()
                 )
